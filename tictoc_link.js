@@ -84,7 +84,7 @@
 			iframe.src = link;	
 		}
 		
-		alert(link);
+		//alert(link);
 	};
 	
 })(window);
