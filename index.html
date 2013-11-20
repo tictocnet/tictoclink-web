@@ -1,0 +1,105 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Tictoclink-web by tictocnet</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/respond.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" href="stylesheets/ie.css">
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  </head>
+  <body>
+      <div id="header">
+        <nav>
+          <li class="fork"><a href="https://github.com/tictocnet/tictoclink-web">View On GitHub</a></li>
+          <li class="downloads"><a href="https://github.com/tictocnet/tictoclink-web/zipball/master">ZIP</a></li>
+          <li class="downloads"><a href="https://github.com/tictocnet/tictoclink-web/tarball/master">TAR</a></li>
+          <li class="title">DOWNLOADS</li>
+        </nav>
+      </div><!-- end header -->
+
+    <div class="wrapper">
+
+      <section>
+        <div id="title">
+          <h1>Tictoclink-web</h1>
+          <p>tictoc, tictoclink, web</p>
+          <hr>
+          <span class="credits left">Project maintained by <a href="https://github.com/tictocnet">tictocnet</a></span>
+          <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></span>
+        </div>
+
+        <h1>
+<a name="tictoclink-mobile-web-api" class="anchor" href="#tictoclink-mobile-web-api"><span class="octicon octicon-link"></span></a>TictocLink Mobile Web API</h1>
+
+<h4>
+<a name="custom-url-scheme" class="anchor" href="#custom-url-scheme"><span class="octicon octicon-link"></span></a>Custom URL Scheme</h4>
+
+<pre><code>tictoclink://sendurl?msg=[message]&amp;url=[url]&amp;appid=[appid]
+</code></pre>
+
+<h4>
+<a name="parameters" class="anchor" href="#parameters"><span class="octicon octicon-link"></span></a>Parameters</h4>
+
+<table>
+<thead><tr>
+<th>name</th>
+<th>type</th>
+<th>required</th>
+<th>description</th>
+<th>etc</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>msg</td>
+<td>string</td>
+<td>O</td>
+<td>message</td>
+<td></td>
+</tr>
+<tr>
+<td>url</td>
+<td>string</td>
+<td>O</td>
+<td>web link</td>
+<td></td>
+</tr>
+<tr>
+<td>appid</td>
+<td>string</td>
+<td>X</td>
+<td>mobile app id</td>
+<td></td>
+</tr>
+</tbody>
+</table><h4>
+<a name="sample" class="anchor" href="#sample"><span class="octicon octicon-link"></span></a>Sample</h4>
+
+<div class="highlight highlight-html"><pre>
+        <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"/js/tictoc_link.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+        <span class="nt">&lt;script&gt;</span>
+        <span class="kd">function</span> <span class="nx">send_msg</span><span class="p">()</span> <span class="p">{</span>
+            <span class="nx">tictoc</span><span class="p">.</span><span class="nx">send</span><span class="p">({</span>
+                <span class="nx">msg</span> <span class="o">:</span> <span class="s1">'test message'</span><span class="p">,</span>
+                <span class="nx">url</span> <span class="o">:</span> <span class="s1">'http://www.google.com'</span>
+            <span class="p">})</span>
+        <span class="p">}</span>
+        <span class="nt">&lt;/script&gt;</span>
+
+</pre></div>
+      </section>
+
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
+  </body>
+</html>
