@@ -17,7 +17,7 @@ appid		| string 	| X		| mobile app id |
 
 #### Sample
 
-```javascript
+```html
 
 		<script src="/js/tictoc_link.js"></script>
 		<script>
