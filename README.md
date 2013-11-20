@@ -31,3 +31,9 @@ appid		| string 	| X		| mobile app id |
 
 ```
 
+#### Test Url
+
+```
+http://www.tictoc.net/m/tictoc_link
+```
+
