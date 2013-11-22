@@ -28,19 +28,6 @@
 		return tictoc_link;	
 	}
 	
-	function createTictocIntent(msg, url, appid) {
-		
-		var params = createParams(msg, url, appid);
-		
-		if (params == "" || !params) {
-			return "";
-		}
-		
-		var tictoc_link = "intent://sendurl?" + params + "#Intent;scheme=tictoclink;package=kr.co.tictocplus;end";
-		
-		return tictoc_link;	
-	}	
-	
 	tictoc.send = function(opt) {
 		opt = opt || {};
 		var startTime = +new Date;
@@ -51,7 +38,6 @@
 		var isChrome = /chrome/.test(ua);
 		
 		var link = createTictocLink(opt.msg, opt.url, opt.appid);
-		var indent = createTictocIntent(opt.msg, opt.url, opt.appid);
 		
 		if (link == '') {
 			alert('no send message');
@@ -68,23 +54,35 @@
 			if (lastTime - startTime < dist) {
 				
 				if (/iphone|ipad|ipod/.test(ua)) {
-					location.href="http://bridge.tictoc.net/?id=33";
+					location.href ="http://bridge.tictoc.net/?id=33";
 				} else if (/android/.test(ua)){
-					location.href="http://bridge.tictoc.net/?id=39";
+					if (isChrome) {
+						location.href ="http://bridge.tictoc.net/?id=39";	
+					} else {
+						location.href = "market://details?id=kr.co.tictocplus";	
+					}
+				} else {
+					location.href = 'http://www.tictoc.net';
 				}
 			}
 		}, 500);
 		
 		document.body.appendChild(iframe);
 		
-		if (isAndroid) {
+		if (isAndroid && isChrome) {
 			var w = (window.parent) ? window.parent : window;
-			w.location.assign(link);
+			
+			if (iframe.src) {
+				iframe.src  = link;	
+			} else {
+				iframe.location.assign(link);
+			}
+			
 		} else {
 			iframe.src = link;	
 		}
 		
-		//alert(link);
+		//alert(navigator.userAgent);
 	};
 	
 })(window);
