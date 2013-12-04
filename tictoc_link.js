@@ -28,6 +28,12 @@
 		return tictoc_link;	
 	}
 	
+	function createIntent(link) {
+		
+		return link.replace('tictoclink', 'intent') + "#Intent;scheme=tictoclink;package=kr.co.tictocplus;end";
+	
+	}
+	
 	tictoc.send = function(opt) {
 		opt = opt || {};
 		var startTime = +new Date;
@@ -49,37 +55,31 @@
 		var iframe = document.createElement('iframe');
 		iframe.style.visibility = 'hidden';
 		
-		setTimeout(function() {
-			var lastTime = +new Date;
-			if (lastTime - startTime < dist) {
-				
-				if (/iphone|ipad|ipod/.test(ua)) {
-					location.href ="http://bridge.tictoc.net/?id=33";
-				} else if (/android/.test(ua)){
-					if (isChrome) {
-						location.href ="http://bridge.tictoc.net/?id=39";	
-					} else {
-						location.href = "market://details?id=kr.co.tictocplus";	
-					}
-				} else {
-					location.href = 'http://www.tictoc.net';
-				}
-			}
-		}, 500);
-		
 		document.body.appendChild(iframe);
 		
 		if (isAndroid && isChrome) {
-			var w = (window.parent) ? window.parent : window;
-			
-			if (iframe.src) {
-				iframe.src  = link;	
-			} else {
-				iframe.location.assign(link);
-			}
-			
+			location.href = createIntent(link);
 		} else {
 			iframe.src = link;	
+			
+			setTimeout(function() {
+				var lastTime = +new Date;
+				if (lastTime - startTime < dist) {
+					
+					if (/iphone|ipad|ipod/.test(ua)) {
+						location.href ="http://bridge.tictoc.net/?id=33";
+					} else if (/android/.test(ua)){
+						if (isChrome) {
+							location.href ="http://bridge.tictoc.net/?id=39";	
+						} else {
+							location.href = "market://details?id=kr.co.tictocplus";	
+						}
+					} else {
+						location.href = 'http://www.tictoc.net';
+					}
+				}
+			}, 500);			
+			
 		}
 		
 		//alert(navigator.userAgent);
