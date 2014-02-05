@@ -4,7 +4,7 @@ TictocLink Mobile Web API
 #### Custom URL Scheme
 
 ```
-tictoclink://sendurl?msg=[message]&url=[url]&appid=[appid]
+tictoclink://sendurl?msg=[message]&url=[url]&appid=[appid]&image=[image]
 ```
 
 #### Parameters
