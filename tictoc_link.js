@@ -2,22 +2,39 @@
 	var tictoc = window.tictoc = {};
 	
 	
-	function createParams(msg, url, appid) {
+	function createParams(msg, url, appid ,image) {
 		var params = [];
 		
 		if (!msg && !url) { return ""; }
+		
+		if (!image) {
+			if (document.querySelector) {
+				image = document.querySelector("meta[property='og:image']").content;
+			} else {
+				var nodes = document.getElementsByTagName("meta");
+				for(var i = 0, len = nodes.length; i < len; i++) {
+					var item = nodes[i];
+					
+					if (item.property == 'og:image') {
+						image = item.content;
+						break; 
+					} 
+				}
+			}
+		}		
 				
 		if (msg) {  params.push(["msg", encodeURIComponent(msg)].join("=")); 	}
 		if (url) {  params.push(["url", encodeURIComponent(url)].join("=")); 	}
 		if (appid) {  params.push(["appid", encodeURIComponent(appid)].join("=")); 	}
+		if (image) { params.push(["image", encodeURIComponent(image)].join("=")); 	}		
 
 		return params.join("&");
 		
 	}
 	
-	function createTictocLink(msg, url, appid) {
+	function createTictocLink(msg, url, appid, image) {
 		
-		var params = createParams(msg, url, appid);
+		var params = createParams(msg, url, appid, image);
 		
 		if (params == "" || !params) {
 			return "";
@@ -43,7 +60,7 @@
 		var isAndroid = /android/.test(ua);
 		var isChrome = /chrome/.test(ua);
 		
-		var link = createTictocLink(opt.msg, opt.url, opt.appid);
+		var link = createTictocLink(opt.msg, opt.url, opt.appid, opt.image);
 		
 		if (link == '') {
 			alert('no send message');
