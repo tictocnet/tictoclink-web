@@ -80,6 +80,13 @@
 <td>mobile app id</td>
 <td></td>
 </tr>
+<tr>
+<td>image</td>
+<td>string</td>
+<td>X</td>
+<td>image link, default open graph image(meta tag)</td>
+<td></td>
+</tr>
 </tbody>
 </table><h4>
 <a name="sample" class="anchor" href="#sample"><span class="octicon octicon-link"></span></a>Sample</h4>
@@ -90,7 +97,9 @@
         <span class="kd">function</span> <span class="nx">send_msg</span><span class="p">()</span> <span class="p">{</span>
             <span class="nx">tictoc</span><span class="p">.</span><span class="nx">send</span><span class="p">({</span>
                 <span class="nx">msg</span> <span class="o">:</span> <span class="s1">'test message'</span><span class="p">,</span>
-                <span class="nx">url</span> <span class="o">:</span> <span class="s1">'http://www.google.com'</span>
+                <span class="nx">url</span> <span class="o">:</span> <span class="s1">'http://www.google.com'</span><span class="p">,</span>
+                <span class="nx">image</span> <span class="o">:</span> <span class="s1">'http://www.image.com/jpg'</span>
+
             <span class="p">})</span>
         <span class="p">}</span>
         <span class="nt">&lt;/script&gt;</span>
