@@ -9,7 +9,10 @@
 		
 		if (!image) {
 			if (document.querySelector) {
-				image = document.querySelector("meta[property='og:image']").content;
+				var dom = document.querySelector("meta[property='og:image']")
+				if (dom) {
+					image = dom.content;	
+				}
 			} else {
 				var nodes = document.getElementsByTagName("meta");
 				for(var i = 0, len = nodes.length; i < len; i++) {
