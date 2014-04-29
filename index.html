@@ -1,54 +1,163 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
+    <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Tictoclink-web by tictocnet</title>
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <script src="javascripts/respond.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+
     <!--[if lt IE 9]>
-      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-    <!--[if lt IE 8]>
-    <link rel="stylesheet" href="stylesheets/ie.css">
-    <![endif]-->
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
+    <title>Tictoclink-web by tictocnet</title>
   </head>
+
   <body>
-      <div id="header">
-        <nav>
-          <li class="fork"><a href="https://github.com/tictocnet/tictoclink-web">View On GitHub</a></li>
-          <li class="downloads"><a href="https://github.com/tictocnet/tictoclink-web/zipball/master">ZIP</a></li>
-          <li class="downloads"><a href="https://github.com/tictocnet/tictoclink-web/tarball/master">TAR</a></li>
-          <li class="title">DOWNLOADS</li>
-        </nav>
-      </div><!-- end header -->
+    <header>
+      <div class="inner">
+        <h1>Tictoclink-web</h1>
+        <h2>tictoc, tictoclink, web</h2>
+        <a href="https://github.com/tictocnet/tictoclink-web" class="button"><small>View project on</small>GitHub</a>
+      </div>
+    </header>
 
-    <div class="wrapper">
-
-      <section>
-        <div id="title">
-          <h1>Tictoclink-web</h1>
-          <p>tictoc, tictoclink, web</p>
-          <hr>
-          <span class="credits left">Project maintained by <a href="https://github.com/tictocnet">tictocnet</a></span>
-          <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></span>
-        </div>
-
-        <h1>
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          <h1>
 <a name="tictoclink-mobile-web-api" class="anchor" href="#tictoclink-mobile-web-api"><span class="octicon octicon-link"></span></a>TictocLink Mobile Web API</h1>
+
+<h2>
+<a name="version-2-tictoc_link_newjs" class="anchor" href="#version-2-tictoc_link_newjs"><span class="octicon octicon-link"></span></a>Version 2 (tictoc_link_new.js)</h2>
 
 <h4>
 <a name="custom-url-scheme" class="anchor" href="#custom-url-scheme"><span class="octicon octicon-link"></span></a>Custom URL Scheme</h4>
 
-<pre><code>tictoclink://sendurl?msg=[message]&amp;url=[url]&amp;appid=[appid]
+<pre><code>tictoclink://sendurl?title=[title]&amp;msg=[message]&amp;url=[url]&amp;image=[image]&amp;iconImage=[iconImage]&amp;biImage=[biImage]&amp;svcId=[svcId]&amp;apiVer=[apiVer]&amp;executeInfo=[executeInfo]&amp;marketInfo=[marketInfo]
 </code></pre>
 
 <h4>
 <a name="parameters" class="anchor" href="#parameters"><span class="octicon octicon-link"></span></a>Parameters</h4>
+
+<table>
+<thead><tr>
+<th>name</th>
+<th>type</th>
+<th>required</th>
+<th>description</th>
+<th>etc</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>title</td>
+<td>string</td>
+<td>O</td>
+<td>Title Message</td>
+<td></td>
+</tr>
+<tr>
+<td>msg</td>
+<td>string</td>
+<td>O</td>
+<td>Message of dialogue window</td>
+<td></td>
+</tr>
+<tr>
+<td>url</td>
+<td>string</td>
+<td>O</td>
+<td>Web link</td>
+<td></td>
+</tr>
+<tr>
+<td>image</td>
+<td>string</td>
+<td>O</td>
+<td>Image link (default: open graph image(meta tag))</td>
+<td></td>
+</tr>
+<tr>
+<td>iconImage</td>
+<td>string</td>
+<td>X</td>
+<td>Icon image link (app icon)</td>
+<td></td>
+</tr>
+<tr>
+<td>biImage</td>
+<td>string</td>
+<td>X</td>
+<td>Brand identity image link</td>
+<td></td>
+</tr>
+<tr>
+<td>svcId</td>
+<td>string</td>
+<td>O</td>
+<td>Service ID</td>
+<td></td>
+</tr>
+<tr>
+<td>apiVer</td>
+<td>string</td>
+<td>O</td>
+<td>Tictoc Link API Version -&gt; 1.0 (fixed)</td>
+<td></td>
+</tr>
+<tr>
+<td>executeInfo</td>
+<td>string</td>
+<td>X</td>
+<td>URI scheme when select execute button</td>
+<td></td>
+</tr>
+<tr>
+<td>marketInfo</td>
+<td>string</td>
+<td>X</td>
+<td>Market information when app not installed</td>
+<td></td>
+</tr>
+</tbody>
+</table><h4>
+<a name="sample" class="anchor" href="#sample"><span class="octicon octicon-link"></span></a>Sample</h4>
+
+<div class="highlight highlight-html"><pre><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"/js/tictoc_link_new.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script&gt;</span>
+    <span class="kd">function</span> <span class="nx">send_msg</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">tictoc</span><span class="p">.</span><span class="nx">send</span><span class="p">({</span>
+            <span class="nx">title</span> <span class="o">:</span> <span class="s1">'title'</span><span class="p">,</span>
+            <span class="nx">msg</span> <span class="o">:</span> <span class="s1">'test message'</span><span class="p">,</span>
+            <span class="nx">image</span> <span class="o">:</span> <span class="s1">'http://www.image.com/jpg'</span><span class="p">,</span>
+            <span class="nx">svcId</span> <span class="o">:</span> <span class="s1">'testsvcId'</span><span class="p">,</span>
+            <span class="nx">apiVer</span> <span class="o">:</span> <span class="s1">'1.0'</span><span class="p">,</span>
+            <span class="nx">url</span> <span class="o">:</span> <span class="s1">'http://www.google.com'</span>
+        <span class="p">})</span>
+    <span class="p">}</span>
+<span class="nt">&lt;/script&gt;</span>
+</pre></div>
+
+<h4>
+<a name="test-url" class="anchor" href="#test-url"><span class="octicon octicon-link"></span></a>Test Url</h4>
+
+<pre><code>http://www.tictoc.net/m/tictoc_link
+</code></pre>
+
+<h2>
+<a name="version-1-tictoc_linkjs" class="anchor" href="#version-1-tictoc_linkjs"><span class="octicon octicon-link"></span></a>Version 1 (tictoc_link.js)</h2>
+
+<h4>
+<a name="custom-url-scheme-1" class="anchor" href="#custom-url-scheme-1"><span class="octicon octicon-link"></span></a>Custom URL Scheme</h4>
+
+<pre><code>tictoclink://sendurl?msg=[message]&amp;url=[url]&amp;appid=[appid]&amp;image=[image]
+</code></pre>
+
+<h4>
+<a name="parameters-1" class="anchor" href="#parameters-1"><span class="octicon octicon-link"></span></a>Parameters</h4>
 
 <table>
 <thead><tr>
@@ -89,32 +198,38 @@
 </tr>
 </tbody>
 </table><h4>
-<a name="sample" class="anchor" href="#sample"><span class="octicon octicon-link"></span></a>Sample</h4>
+<a name="sample-1" class="anchor" href="#sample-1"><span class="octicon octicon-link"></span></a>Sample</h4>
 
-<div class="highlight highlight-html"><pre>
-        <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"/js/tictoc_link.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
-        <span class="nt">&lt;script&gt;</span>
-        <span class="kd">function</span> <span class="nx">send_msg</span><span class="p">()</span> <span class="p">{</span>
-            <span class="nx">tictoc</span><span class="p">.</span><span class="nx">send</span><span class="p">({</span>
-                <span class="nx">msg</span> <span class="o">:</span> <span class="s1">'test message'</span><span class="p">,</span>
-                <span class="nx">url</span> <span class="o">:</span> <span class="s1">'http://www.google.com'</span><span class="p">,</span>
-                <span class="nx">image</span> <span class="o">:</span> <span class="s1">'http://www.image.com/jpg'</span>
-
-            <span class="p">})</span>
-        <span class="p">}</span>
-        <span class="nt">&lt;/script&gt;</span>
-
+<div class="highlight highlight-html"><pre><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"/js/tictoc_link.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script&gt;</span>
+    <span class="kd">function</span> <span class="nx">send_msg</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">tictoc</span><span class="p">.</span><span class="nx">send</span><span class="p">({</span>
+            <span class="nx">msg</span> <span class="o">:</span> <span class="s1">'test message'</span><span class="p">,</span>
+            <span class="nx">url</span> <span class="o">:</span> <span class="s1">'http://www.google.com'</span><span class="p">,</span>
+            <span class="nx">image</span> <span class="o">:</span> <span class="s1">'http://www.image.com/jpg'</span>
+        <span class="p">})</span>
+    <span class="p">}</span>
+<span class="nt">&lt;/script&gt;</span>
 </pre></div>
+        </section>
 
-<h4>
-<a name="test-url" class="anchor" href="#test-url"><span class="octicon octicon-link"></span></a>Test Url</h4>
+        <aside id="sidebar">
+          <a href="https://github.com/tictocnet/tictoclink-web/zipball/master" class="button">
+            <small>Download</small>
+            .zip file
+          </a>
+          <a href="https://github.com/tictocnet/tictoclink-web/tarball/master" class="button">
+            <small>Download</small>
+            .tar.gz file
+          </a>
 
-<pre><code>http://www.tictoc.net/m/tictoc_link
-</code></pre>
-      </section>
+          <p class="repo-owner"><a href="https://github.com/tictocnet/tictoclink-web"></a> is maintained by <a href="https://github.com/tictocnet">tictocnet</a>.</p>
 
+          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
+        </aside>
+      </div>
     </div>
-    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
-    
+
+  
   </body>
 </html>
