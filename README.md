@@ -1,5 +1,4 @@
 # TictocLink Mobile Web API
------
 
 ## Version 2 (tictoc_link_new.js)
 
@@ -9,7 +8,6 @@ tictoclink://sendurl?title=[title]&msg=[message]&url=[url]&image=[image]&iconIma
 ```
 
 #### Parameters
-
 name   			| type   		| required      | description           | etc
 ---             | ---           | ---           | ---                   | ---
 title           | string        | O     		| Title Message |
@@ -40,12 +38,11 @@ marketInfo      | string        | X             | Market information when app no
 </script>
 ~~~
 
-
 #### Test Url
 ```
 http://www.tictoc.net/m/tictoc_link
 ```
----
+
 
 ## Version 1 (tictoc_link.js)
 
@@ -55,7 +52,6 @@ tictoclink://sendurl?msg=[message]&url=[url]&appid=[appid]&image=[image]
 ```
 
 #### Parameters
-
 name   | type   | required | description                                | etc
 ---                     | ---           | ---           | ---                           | ---
 msg                     | string        | O     | message |
